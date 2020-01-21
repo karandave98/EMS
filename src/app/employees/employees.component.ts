@@ -30,9 +30,11 @@ export class EmployeesComponent implements OnInit {
           location: "Pune", 
           email: "vinay@mail.com", 
           mobile: "9975287450" 
-        } 
+        }
       ]; 
+    
   ngOnInit() {
+    this.empCount = this.employees.length;
   }
 
 }

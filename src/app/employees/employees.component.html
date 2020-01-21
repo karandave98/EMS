@@ -2,13 +2,14 @@
   <title>Employee List</title>
   <base href="/employees">
 </head>
-<div > 
-  <label>Filter By:</label>
+<div style="margin: 15px 0px 0px 0px;"> 
+  <label>Filter By:</label><br>
   <input type="text" id = "filter" >
 </div>
-<label> Total Number of Employees : </label>
-<label id ="count">
-<table>
+<br>
+<label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count">  {{empCount}}</label>
+<br><br>
+<table border="1">
   <thead>
     <tr>
       <th>Emp Id</th>
@@ -20,8 +21,8 @@
   </thead>
   <tbody >
     <tr *ngFor="let emp of employees">
-      <td>{{emp.id}}</td>
-      <td>{{emp.name}}</td>
+      <td id="{{'id' + $index}}"><a>{{emp.id}}</a></td>
+      <td  id="{{'name' + $index}}">{{emp.name }} </td>
       <td>{{emp.location}}</td>
       <td>{{emp.email}}</td>
       <td>{{emp.mobile}}</td>
