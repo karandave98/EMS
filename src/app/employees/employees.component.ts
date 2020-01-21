@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeesComponent implements OnInit {
 
   constructor() { }
+  empCount : Number = 0;
   employees = [ 
         { 
           id: 1, 
