@@ -9,15 +9,14 @@ import { EmployeesComponent } from './employees/employees.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
-  { path: '\employees', component: EmployeesComponent },
+  
+  { path: '\employees', component: EmployeesComponent }
 ];
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes // <-- debugging purposes only
     ) ],
   
   declarations: [ AppComponent, HelloComponent , EmployeesComponent],

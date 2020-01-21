@@ -1,5 +1,6 @@
 <head>
   <title>Employee List</title>
+  <base href="/employees">
 </head>
 <div > 
   <label>Filter By:</label>
@@ -10,22 +11,20 @@
 <table>
   <thead>
     <tr>
-    <th>Emp Id</th>
-    <th>Emp Name</th>
-    <th>Emp location</th>
-    <th>Emp Mail</th>
-    <th>Contact</th>
+      <th>Emp Id</th>
+      <th>Emp Name</th>
+      <th>Emp location</th>
+      <th>Emp Mail</th>
+      <th>Contact</th>
     </tr>
   </thead>
   <tbody >
-    <div *ngFor="let emp of employees">
-    <tr >
+    <tr *ngFor="let emp of employees">
       <td>{{emp.id}}</td>
       <td>{{emp.name}}</td>
       <td>{{emp.location}}</td>
       <td>{{emp.email}}</td>
       <td>{{emp.mobile}}</td>
     </tr>
-    </div>
   </tbody>
 </table>
