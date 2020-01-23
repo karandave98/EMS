@@ -5,10 +5,30 @@
 
 <div >
   <h4> Add Employee </h4>
-<div style="border: 2px solid blue; padding : 10px;">
-  <form name= "addEmployee" >
-    <label>Employee Name </label>
-    <input type = "text" id ="name" />
+<div style="border: 2px solid blue; padding: 10px 50px;">
+  <form name= "addEmployee" action="#">
+    <table>
+      <tr>
+        <td><label>Employee Name: </label></td>
+        <td><input type = "text" id ="name" /></td>
+      </tr>
+      <tr>
+        <td><label>Location: </label></td>
+        <td><input type = "text" id ="location" /></td>
+      </tr>
+      <tr>
+        <td> <label>Email: </label></td>
+        <td><input type = "email" id ="email" /></td>
+      </tr>
+      <tr>
+        <td><label>Mobile: </label></td>
+        <td><input type = "number" maxlength="10" minlength="10" id ="mobile" /></td>
+      </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" id="add"/></td>
+    </tr>
+    </table>  
   </form>
 </div>
 </div>
