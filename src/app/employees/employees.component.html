@@ -23,13 +23,13 @@
   </thead>
   <tbody  >
     <tr *ngFor="let emp of employees | filter : 'name' : searchString; let i = index"  style = "padding : 5px;">
-      <td ><a>{{emp.id}}</a></td>
-      <td >{{emp.name }} </td>
-      <td>{{emp.location}}</td>
-      <td>{{emp.email}}</td>
-      <td>{{emp.mobile}}</td>
-      <td><input value="Edit{{i+1}}" type ="button" /></td>
-      <td><input type="button" value="Delete{{i+1}}" /></td>
+      <td ><a href="#">{{emp.id}}</a></td>
+      <td id="name{{i+1}}">{{emp.name }} </td>
+      <td id="loc{{i+1}}">{{emp.location}}</td>
+      <td id="email{{i+1}}">{{emp.email}}</td>
+      <td id="mobile{{i+1}}">{{emp.mobile}}</td>
+      <td><a href = "#" class="button -btn">Edit{{i+1}}</a></td>
+      <td><a href = "#" class="button -btn">Delete{{i+1}}</a></td>
     </tr>
   </tbody>
 </table>
