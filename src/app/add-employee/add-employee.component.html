@@ -6,23 +6,27 @@
 <div >
   <h4> Add Employee </h4>
 <div style="border: 2px solid blue; padding: 10px 50px;">
-  <form name= "addEmployee" action="#">
+  <form name= "addEmployee" [formGroup]="myForm" (ngSubmit)="addEmp(myForm)">
     <table>
       <tr>
         <td><label>Employee Name: </label></td>
-        <td><input type = "text" id ="name" /></td>
+        <td><input type = "text" id ="name"  formControlName="name" required
+            pattern="[a-zA-Z][a-zA-Z ]+"
+             name="name"
+             />
+        </td>
       </tr>
       <tr>
         <td><label>Location: </label></td>
-        <td><input type = "text" id ="location" /></td>
+        <td><input type = "text" id ="location" formControlName="location"/></td>
       </tr>
       <tr>
         <td> <label>Email: </label></td>
-        <td><input type = "email" id ="email" /></td>
+        <td><input type = "email" id ="email" formControlName="email"/></td>
       </tr>
       <tr>
         <td><label>Mobile: </label></td>
-        <td><input type = "number" maxlength="10" minlength="10" id ="mobile" /></td>
+        <td><input type = "number" maxlength="10" minlength="10" id ="mobile" formControlName="mobile"/></td>
       </tr>
     <tr>
       <td></td>
