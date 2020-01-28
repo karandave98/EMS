@@ -6,12 +6,7 @@ import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
-export class Employee{
- public name : string;
- public location : string;
-  email: string;
-  mobile : number;
-}
+
 export class AddEmployeeComponent implements OnInit {
    private myForm: FormGroup;
   constructor() { }
@@ -35,4 +30,10 @@ export class AddEmployeeComponent implements OnInit {
 
     this.messageEvent.emit(this.emp)
   }
+}
+export class Employee{
+ public name : string;
+ public location : string;
+  email: string;
+  mobile : number;
 }
