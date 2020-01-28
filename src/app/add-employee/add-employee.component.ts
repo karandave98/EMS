@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
 
 @Component({
@@ -6,6 +6,12 @@ import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
+export class Employee{
+ public name : string;
+ public location : string;
+  email: string;
+  mobile : number;
+}
 export class AddEmployeeComponent implements OnInit {
    private myForm: FormGroup;
   constructor() { }
@@ -21,9 +27,12 @@ export class AddEmployeeComponent implements OnInit {
   printMyForm() {
    console.log(this.myForm);
  }
-  addEmp(){
-    console.log('Registration successful.');
-   console.log(myForm.value);
-  }
+ public emp : Employee;
+ @Output() messageEvent = new EventEmitter<Employee>();
 
+  addEmp(){
+
+
+    this.messageEvent.emit(this.emp)
+  }
 }

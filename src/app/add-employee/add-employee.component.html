@@ -6,27 +6,25 @@
 <div >
   <h4> Add Employee </h4>
 <div style="border: 2px solid blue; padding: 10px 50px;">
-  <form name= "addEmployee" [formGroup]="myForm" (ngSubmit)="addEmp(myForm)">
+  <form name= "addEmployee" [formGroup]="myForm" (ngSubmit)="addEmp()">
     <table>
       <tr>
         <td><label>Employee Name: </label></td>
-        <td><input type = "text" id ="name"  formControlName="name" required
-            pattern="[a-zA-Z][a-zA-Z ]+"
-             name="name"
-             />
+        <td><input type = "text" id ="name"  formControlName="name" required  pattern="[a-zA-Z][a-zA-Z ]+" name="name" />
+            <div *ngif
         </td>
       </tr>
       <tr>
         <td><label>Location: </label></td>
-        <td><input type = "text" id ="location" formControlName="location"/></td>
+        <td><input type = "text" id ="location" formControlName="location" required/></td>
       </tr>
       <tr>
         <td> <label>Email: </label></td>
-        <td><input type = "email" id ="email" formControlName="email"/></td>
+        <td><input type = "email" id ="email" formControlName="email" required/></td>
       </tr>
       <tr>
         <td><label>Mobile: </label></td>
-        <td><input type = "number" maxlength="10" minlength="10" id ="mobile" formControlName="mobile"/></td>
+        <td><input type = "number" maxlength="10" minlength="10" id ="mobile" formControlName="mobile" required/></td>
       </tr>
     <tr>
       <td></td>
