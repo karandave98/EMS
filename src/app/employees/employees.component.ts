@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-employees',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataServe : DataService) { }
   empCount : Number = 0;
   employees = [ 
         { 
@@ -34,7 +35,20 @@ export class EmployeesComponent implements OnInit {
       ]; 
     
   ngOnInit() {
+   
     this.empCount = this.employees.length;
+    let maxId = 4;
+    if(this.dataServe.getData() != null){
+         let emp  = this.dataServe.getData();
+      console.log("Enter If ----" + emp);
+      emp["id"] = maxId;
+      this.employees.push(emp);
+    }
+    else{
+      console.log("Enter Else");
+     
+    }
+     this.empCount = this.employees.length;
   }
 
 }

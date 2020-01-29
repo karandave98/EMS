@@ -17,10 +17,9 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(
+  imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(
       appRoutes // <-- debugging purposes only
     ) ],
-  
   declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent],
   bootstrap:    [ AppComponent ]
 })

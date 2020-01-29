@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { FormGroup,  NgForm, Validators } from '@angular/forms';
 import { Router }  from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -10,7 +11,7 @@ import { Router }  from '@angular/router';
 
 export class AddEmployeeComponent implements OnInit {
   model :any = {};
-  constructor(private router: Router) { }
+  constructor(private router: Router, private ds : DataService ) { }
 
   ngOnInit() {
  
@@ -19,8 +20,9 @@ export class AddEmployeeComponent implements OnInit {
 
   addEmp(){
     console.log(this.model);
-    this.messageEvent.emit(this.model);
-    this.router.navigate("/employees");
+    this.ds.setData(this.model);
+    // this.messageEvent.emit(this.model);
+    this.router.navigate(["/employees"]);
   }
 }
 // export class Employee{
