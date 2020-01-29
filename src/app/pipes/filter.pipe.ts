@@ -12,9 +12,9 @@ export class FilterPipe implements PipeTransform {
     if (!field || !value) {
       return items;
     }
-
+   console.log(items);
     return items.filter(singleItem =>
-      singleItem[field].toLowerCase().includes(value.toLowerCase())
+      singleItem[field].toLowerCase().match("^".concat(value.toLowerCase()))
     );
   }
 }
