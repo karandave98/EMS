@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { FormGroup,  NgForm, Validators } from '@angular/forms';
-import { DataService } from "../data.service";
+import { Router }  from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -10,7 +10,7 @@ import { DataService } from "../data.service";
 
 export class AddEmployeeComponent implements OnInit {
   model :any = {};
-  constructor(private data: DataService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
  
@@ -19,7 +19,8 @@ export class AddEmployeeComponent implements OnInit {
 
   addEmp(){
     console.log(this.model);
-    this.data.currentEmp.subscribe(empoyee => this.model)
+    this.messageEvent.emit(this.model);
+    this.router.navigate("/employees");
   }
 }
 // export class Employee{
