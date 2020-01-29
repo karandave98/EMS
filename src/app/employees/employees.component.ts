@@ -38,19 +38,33 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.employees = this.dataServe.getData();
     this.empCount = this.employees.length;
-    if(this.dataServe.getData() != null){
-         let emp  = this.dataServe.getData();
-      console.log("Enter If ----" + emp);
-    }
-    else{
-      console.log("Enter Else");
+    // if(this.dataServe.getData() != null){
+    //      let emp  = this.dataServe.getData();
+      
+    // }
+    // else{
+    //   console.log("Enter Else");
      
-    }
+    // }
      this.empCount = this.employees.length;
   }
   clicked(ind){
     console.log(ind+1);
     this.dataServe.setEditData(ind+1);
-    this.router.navigate(["/editEmployee"]);
+  }
+  delete(ind){
+   
+    
+    for(let emp of this.employees){
+      if(parseInt(emp['id'])== (ind+1)){
+        this.employees.splice(ind,1);
+        break;
+      }
+    }
+     for(let emp of this.employees){
+      if(emp['id'] > ind){
+        emp['id'] = emp['id']-1; 
+      }
+    }
   }
 }
