@@ -8,11 +8,13 @@ import { HelloComponent } from './hello.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 const appRoutes: Routes = [
   
   { path: '\employees', component: EmployeesComponent },
-  { path: '\addEmployee', component : AddEmployeeComponent}
+  { path: '\addEmployee', component : AddEmployeeComponent},
+  { path: '\editEmployee', component : EditEmployeeComponent}
 ];
 
 
@@ -20,7 +22,7 @@ const appRoutes: Routes = [
   imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(
       appRoutes // <-- debugging purposes only
     ) ],
-  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent],
+  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

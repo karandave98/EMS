@@ -19,6 +19,7 @@ export class AddEmployeeComponent implements OnInit {
  @Output() messageEvent = new EventEmitter<any>();
 
   addEmp(){
+    
     console.log(this.model);
     this.ds.setData(this.model);
     // this.messageEvent.emit(this.model);

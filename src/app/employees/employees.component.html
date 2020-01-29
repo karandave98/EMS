@@ -23,12 +23,12 @@
   </thead>
   <tbody  >
     <tr *ngFor="let emp of employees | filter : 'name' : searchString; let i = index"  style = "padding : 5px;">
-      <td ><a href="#">{{emp.id}}</a></td>
+      <td ><a href="">{{emp.id}}</a></td>
       <td id="name{{i+1}}">{{emp.name }} </td>
       <td id="loc{{i+1}}">{{emp.location}}</td>
       <td id="email{{i+1}}">{{emp.email}}</td>
       <td id="mobile{{i+1}}">{{emp.mobile}}</td>
-      <td><a href = "#" class="button -btn">Edit{{i+1}}</a></td>
+      <td><a routerLink = "/editEmployee" class="button -btn">Edit{{i+1}}</a></td>
       <td><a href = "#" class="button -btn">Delete{{i+1}}</a></td>
     </tr>
   </tbody>
