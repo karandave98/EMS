@@ -28,7 +28,7 @@
       <td id="loc{{i+1}}">{{emp.location}}</td>
       <td id="email{{i+1}}">{{emp.email}}</td>
       <td id="mobile{{i+1}}">{{emp.mobile}}</td>
-      <td><a routerLink = "/editEmployee" class="button -btn">Edit{{i+1}}</a></td>
+      <td><a  class="button -btn" (click)="clicked(i)">Edit{{i+1}}</a></td>
       <td><a href = "#" class="button -btn">Delete{{i+1}}</a></td>
     </tr>
   </tbody>

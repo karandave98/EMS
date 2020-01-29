@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router }  from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -8,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor(private dataServe : DataService) { }
+  constructor(private dataServe : DataService , private router: Router) { }
   empCount : Number = 0;
   employees = [ ]
   //       { 
@@ -47,5 +48,9 @@ export class EmployeesComponent implements OnInit {
     }
      this.empCount = this.employees.length;
   }
-
+  clicked(ind){
+    console.log(ind+1);
+    this.dataServe.setEditData(ind+1);
+    this.router.navigate(["/editEmployee"]);
+  }
 }

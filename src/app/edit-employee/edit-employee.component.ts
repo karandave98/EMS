@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,  NgForm, Validators } from '@angular/forms';
+
+
+import { DataService } from '../data.service';
+import { Router }  from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -7,10 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditEmployeeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dataServe : DataService , private router: Router ) { }
+  model : any ={};
+  employees = [ ];
   ngOnInit() {
-    
+    let index  = this.dataServe.getEditData();
+    this.employees = this.dataServe.getData();
+    for ( let emp of this.employees){
+      if(emp['id'] == index){
+        this.model=emp;
+        break;
+      }
+    }
+    console.log(this.model);
+  }
+  updateEmp(){
+       this.router.navigate(["/employees"]);
   }
 
 }

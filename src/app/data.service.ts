@@ -38,5 +38,11 @@ export class DataService {
     getData():any{
         return this.employees;
     }
-
+  ind : number = -1;
+  setEditData(index : number){
+    this.ind = index;
+  }
+  getEditData():number{
+    return this.ind;
+  }
 }
