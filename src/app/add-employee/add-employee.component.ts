@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
-import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
+import { FormGroup,  NgForm, Validators } from '@angular/forms';
+import { DataService } from "../data.service";
 
 @Component({
   selector: 'app-add-employee',
@@ -8,32 +9,29 @@ import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms';
 })
 
 export class AddEmployeeComponent implements OnInit {
-   private myForm: FormGroup;
-  constructor() { }
+  model :any = {};
+  constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.myForm = new FormGroup({
-      'name' : new FormControl(),
-      'location' : new FormControl(),
-      'email' : new FormControl(),
-      'mobile' : new FormControl()
-    });
+ 
   }
-  printMyForm() {
-   console.log(this.myForm);
- }
- public emp : Employee;
- @Output() messageEvent = new EventEmitter<Employee>();
+ @Output() messageEvent = new EventEmitter<any>();
 
   addEmp(){
-
-
-    this.messageEvent.emit(this.emp)
+    console.log(this.model);
+    this.data.currentEmp.subscribe(empoyee => this.model)
   }
 }
-export class Employee{
- public name : string;
- public location : string;
-  email: string;
-  mobile : number;
-}
+// export class Employee{
+//   name : string;
+//   location : string;
+//   email: string;
+//   mobile : number;
+
+//   constructor(name: string, location :string, email : string, mobile :number) { 
+//     this.name = name; 
+//     this.location = location;
+//     this.email = email;
+//     this.mobile = mobile;
+//     }
+// }
