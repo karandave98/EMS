@@ -9,7 +9,7 @@ import { Router }  from '@angular/router';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor(private dataServe : DataService , private router: Router) { }
+  constructor(private dataServe : DataService , private router : Router) { }
   empCount : Number = 0;
   employees = [ ]
     
@@ -19,31 +19,32 @@ export class EmployeesComponent implements OnInit {
    
   }
   clicked(ind){
-    console.log(ind+1);
-    this.dataServe.setEditData(ind+1);
+    console.log(ind);
+    this.dataServe.setEditData(ind);
   }
   delete(ind){
     for(let emp of this.employees){
-      if(parseInt(emp['id'])== (ind+1)){
-        this.employees.splice(ind,1);
+      if(parseInt(emp['id'])== (ind)){
+        this.employees.splice(ind-1,1);
         break;
       }
     }
-     for(let emp of this.employees){
-      if(emp['id'] > ind){
-        emp['id'] = emp['id']-1; 
-      }
-    }
+    //  for(let emp of this.employees){
+    //   if(emp['id'] > ind){
+    //     emp['id'] = emp['id']-1; 
+    //   }
+    // }
+    this.searchString = "";
       this.empCount = this.employees.length;
   }
   det(i){
-    let model:any;
-    model["id"] = i;
+    let a =  {};
     for (let detailEmp of this.employees){
-      if(detailEmp["id"] == i){
-        model = detailEmp;
+      if(detailEmp['id'] == i){
+        a = detailEmp;
       }
     }
-    console.log(model);
+    
+    this.dataServe.setDetails(a);
   }
 }

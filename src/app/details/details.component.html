@@ -1,9 +1,35 @@
-
+<head>
+  <base href="/details"/>
+  <title>Employee Details</title>
+</head>
 <h2>Employee Details</h2>
 <table>
   <tr>
     <td><label >ID: </label></td>
-    <td><label>1</label>
+    <td><label id="id">{{selEmp.id}}</label>
     </td>
+  </tr>
+    <tr>
+    <td><label >Name: </label></td>
+    <td><label id="name">{{selEmp.name}}</label>
+    </td>
+  </tr>
+    <tr>
+    <td><label >Location: </label></td>
+    <td><label id="location">{{selEmp.location}}</label>
+    </td>
+  </tr>
+    <tr>
+    <td><label >Email: </label></td>
+    <td><label id="email">{{selEmp.email}}</label>
+    </td>
+  </tr>
+    <tr>
+    <td><label >Mobile: </label></td>
+    <td><label id="mobile">{{selEmp.mobile}}</label>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="button" id = "back" (click) = "back()" value="Back" /></td>
   </tr>
 </table>

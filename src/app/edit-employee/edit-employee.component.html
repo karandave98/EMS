@@ -9,10 +9,6 @@
       <tr>
         <td><label>Employee Name: </label></td>
         <td><input type = "text" id ="name"  name="name" [(ngModel)]="model.name" #name="ngModel" [ngClass]="{ 'is-invalid': edit.submitted && name.invalid }" required  pattern="[A-Za-z]{3,30}" />
-            <!-- <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-                <div *ngIf="name.errors.required">Name is required</div>
-                <div *ngIf="name.invalid">Only Alphabets Allowed</div>
-            </div> -->
         </td>
       </tr>
       <tr>
@@ -25,9 +21,6 @@
             <option value= "Chennai">Chennai</option>
             <option value= "Pune">Pune</option>
           </select>
-          <!-- <div *ngIf="f.submitted && location.invalid" class="invalid-feedback">
-                        <div *ngIf="location.errors.required">Location is required</div>
-                    </div> -->
         </td>
       </tr>
       <tr>
@@ -35,23 +28,15 @@
         <td><input type = "email" id ="email" maxlength="30" minlength="3"  name= "email"  
               [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': edit.submitted && email.invalid }" pattern="^[A-Za-z0-9+_.-]+@(.+)$" required email/>
         </td>
-         <!-- <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-                    <div *ngIf="email.errors.required">Email is required</div>
-                    <div *ngIf="email.errors.email">Email must be a valid email address</div>
-                </div> -->
       </tr>
       <tr>
         <td><label>Mobile: </label></td>
-        <td><input type = "number" maxlength="10" minlength="10" id ="mobile"  required name="mobile"
+        <td><input type = "number" maxlength="10" minlength="10" id ="mobile"  required name="mobile" pattern="[0-9]{10}$"
             [(ngModel)]="model.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': edit.submitted && mobile.invalid }"/></td>
-             <!-- <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
-                    <div *ngIf="mobile.errors.required">Mobile is required</div>
-                    
-                </div> -->
       </tr>
     <tr>
       <td></td>
-      <td><input type="submit" id="add" value="Update" [disabled]="!edit.valid" style="background-color: lightblue;"/></td>
+      <td><input type="submit" id="update" value="Update" [disabled]="!edit.valid" style="background-color: lightblue;"/></td>
     </tr>
     </table>  
   </form>

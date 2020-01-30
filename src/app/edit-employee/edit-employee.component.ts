@@ -25,7 +25,7 @@ export class EditEmployeeComponent implements OnInit {
         break;
       }
     }
-    console.log(this.model);
+    
   }
   updateEmp(){
        this.router.navigate(["/employees"]);

@@ -31,18 +31,33 @@ export class DataService {
         ]; 
   constructor() { }
   setData(data:any){
-        data["id"]=this.employees.length+1;
+      let maxID  = -1;
+
+      for(let rmp of this.employees){
+        if(rmp["id"] > maxID){
+          maxID = rmp["id"];
+        }
+      }
+        data["id"]= maxID + 1;
         this.employees.push(data);
     }
 
     getData():any{
         return this.employees;
     }
-  ind : number = -1;
+    
+  private ind : number = -1;
   setEditData(index : number){
     this.ind = index;
   }
   getEditData():number{
     return this.ind;
+  }
+  private det : any={};
+  setDetails(emp: any){
+    this.det = emp;
+  }
+  getDetails() : any{
+    return this.det;
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Router }  from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private dataService : DataService, private router: Router) { }
+   selEmp:any = {};
   ngOnInit() {
-    
+    this.selEmp = this.dataService.getDetails();
+
+  }
+  back(){
+     this.router.navigate(["/employees"]);
   }
 
 }
