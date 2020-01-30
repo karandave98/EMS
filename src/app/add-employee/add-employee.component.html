@@ -44,7 +44,7 @@
       </tr>
       <tr>
         <td><label>Mobile: </label></td>
-        <td><input type = "number" maxlength="10" minlength="10" id ="mobile"  required name="mobile"
+        <td><input type = "text" maxlength="10" minlength="10" id ="mobile"  required name="mobile" pattern="[0-9]{10}$"
             [(ngModel)]="model.mobile" #mobile="ngModel" [ngClass]="{ 'is-invalid': f.submitted && mobile.invalid }"/></td>
              <!-- <div *ngIf="f.submitted && mobile.invalid" class="invalid-feedback">
                     <div *ngIf="mobile.errors.required">Mobile is required</div>
