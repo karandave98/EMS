@@ -36,4 +36,14 @@ export class EmployeesComponent implements OnInit {
     }
       this.empCount = this.employees.length;
   }
+  det(i){
+    let model:any;
+    model["id"] = i;
+    for (let detailEmp of this.employees){
+      if(detailEmp["id"] == i){
+        model = detailEmp;
+      }
+    }
+    console.log(model);
+  }
 }

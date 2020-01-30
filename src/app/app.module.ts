@@ -9,12 +9,14 @@ import { EmployeesComponent } from './employees/employees.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { DetailsComponent } from './details/details.component';
 
 const appRoutes: Routes = [
   
   { path: '\employees', component: EmployeesComponent },
   { path: '\addEmployee', component : AddEmployeeComponent},
-  { path: '\editEmployee', component : EditEmployeeComponent}
+  { path: '\editEmployee', component : EditEmployeeComponent},
+  { path: '\details', component : DetailsComponent}
 ];
 
 
@@ -22,7 +24,7 @@ const appRoutes: Routes = [
   imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(
       appRoutes // <-- debugging purposes only
     ) ],
-  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent],
+  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

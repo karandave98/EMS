@@ -2,14 +2,14 @@
   <title>Employee List</title>
   <base href="/employees">
 </head>
-<div style="margin: 15px 0px 0px 0px;"> 
+<div style="margin: 15px 0px 0px 0px;" class="container"> 
   <label>Filter By:</label><br>
   <input type="text" id = "filter"  name="searchString" [(ngModel)]="searchString">
 </div>
 <br>
 <label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count">  {{empCount}}</label>
 <br><br>
-<table border="1" >
+<table class="table" border =1>
   <thead>
     <tr>
       <th>Emp Id</th>
@@ -23,13 +23,13 @@
   </thead>
   <tbody  >
     <tr *ngFor="let emp of employees | filter : 'name' : searchString; let i = index"  style = "padding : 5px;">
-      <td ><a href="">{{emp.id}}</a></td>
+      <td ><a routerLink="/details" (click) = "det(i)">{{emp.id}}</a></td>
       <td id="name{{i+1}}">{{emp.name }} </td>
       <td id="loc{{i+1}}">{{emp.location}}</td>
       <td id="email{{i+1}}">{{emp.email}}</td>
       <td id="mobile{{i+1}}">{{emp.mobile}}</td>
-      <td><a  routerLink="/editEmployee" class="button -btn" (click)="clicked(i)">Edit{{i+1}}</a></td>
-      <td><a (click) = "delete(i)" class="button -btn">Delete{{i+1}}</a></td>
+      <td><a  routerLink="/editEmployee" class="link" (click)="clicked(i)">Edit{{i+1}}</a></td>
+      <td><a (click) = "delete(i)" routerLink="/employees" class="link">Delete{{i+1}}</a></td>
     </tr>
   </tbody>
 </table>
