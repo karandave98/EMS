@@ -1,38 +1,53 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+export interface Employee {
+  id: number;
+  name: string;
+  location:string;
+  email:string;
+  mobile:string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   private tmp : any;
-  employees = [ 
-          { 
-            id: 1, 
-            name: "Ram", 
-            location: "Bangalore", 
-            email: "ram@mail.com", 
-            mobile: "9867512345" 
-          }, 
-          { 
-            id: 2, 
-            name: "Raj", 
-            location: "Chennai", 
-            email: "raj@mail.com", 
-            mobile: "7867534521" 
-          }, 
-          { 
-            id: 3, 
-            name: "Vinay", 
-            location: "Pune", 
-            email: "vinay@mail.com", 
-            mobile: "9975287450" 
-          }
-        ]; 
-  constructor() { }
+  private heroesUrl = 'api/employees';
+  private employees : Employee[]; 
+  constructor(private http: HttpClient) {
+    
+    
+   }
+  getEmp(){
+      return this.http.get(this.heroesUrl);
+   }
+
+   getEmployee(empId){
+       return this.http.get(`${this.heroesUrl }/${empId}`); 
+  }
+  createEmployee(employee: Employee){
+      return this.http.post(`${this.heroesUrl }`, employee)
+  }
+
+  public deletePolicy(empId){
+      return this.http.delete(`${this.heroesUrl }/${empId}`)
+  }
+  public updateEmp(employee: Employee){
+      return this.http.put(`${this.heroesUrl }/${employee.id}`, employee)
+  }
+
+
+
+
+
+
+
+  
   setData(data:any){
       let maxID  = -1;
-
       for(let rmp of this.employees){
         if(rmp["id"] > maxID){
           maxID = rmp["id"];
@@ -41,9 +56,15 @@ export class DataService {
         data["id"]= maxID + 1;
         this.employees.push(data);
     }
-
+    getLength(){
+      return this.employees.length;
+    }
     getData():any{
-        return this.employees;
+       this.getEmp().subscribe((data : any[])=>{
+        // console.log(data);
+        this.employees = data;        
+    });
+         return this.employees;
     }
     
   private ind : number = -1;

@@ -10,7 +10,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { DetailsComponent } from './details/details.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 const appRoutes: Routes = [
   
   { path: '\employees', component: EmployeesComponent },
@@ -23,8 +25,13 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ BrowserModule, FormsModule,RouterModule.forRoot(
       appRoutes // <-- debugging purposes only
-    ) ],
+    ),
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {delay:0}
+    )   ],
   declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [InMemoryDataService]
 })
 export class AppModule { }

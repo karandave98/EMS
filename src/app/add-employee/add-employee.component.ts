@@ -21,8 +21,9 @@ export class AddEmployeeComponent implements OnInit {
   addEmp(){
     
     console.log(this.model);
-    this.ds.setData(this.model);
-    // this.messageEvent.emit(this.model);
+    this.ds.createEmployee(this.model).subscribe((ret)=>{
+          console.log("Employee created: ", ret);
+    });
     this.router.navigate(["/employees"]);
   }
 }
