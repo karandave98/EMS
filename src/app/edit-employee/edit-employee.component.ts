@@ -29,7 +29,12 @@ export class EditEmployeeComponent implements OnInit {
   }
   updateEmp(){
      
-      this.dataServe.updateEmp(this.model);
+      this.dataServe.updateEmp(this.model).subscribe((ret) => {
+      console.log("UPd " + ret );
+      
+      }
+
+      );
       
       this.router.navigate(["/employees"]);
   }

@@ -13,6 +13,7 @@ import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { MyDirectiveDirective } from './my-directive.directive';
 const appRoutes: Routes = [
   
   { path: '\employees', component: EmployeesComponent },
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {delay:0}
     )   ],
-  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent],
+  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent, MyDirectiveDirective],
   bootstrap:    [ AppComponent ],
   providers: [InMemoryDataService]
 })

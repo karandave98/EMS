@@ -32,7 +32,7 @@ export class DataService {
       return this.http.post(`${this.heroesUrl }`, employee)
   }
 
-  public deletePolicy(empId){
+  public deleteEmployee(empId){
       return this.http.delete(`${this.heroesUrl }/${empId}`)
   }
   public updateEmp(employee: Employee){

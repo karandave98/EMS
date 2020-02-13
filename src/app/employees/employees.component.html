@@ -7,7 +7,8 @@
   <input type="text" id = "filter"  name="searchString" [(ngModel)]="searchString">
 </div>
 <br>
-<label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count">  {{empCount}}</label>
+<label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count"> <label> {{empCount | pilter:'name':searchString:1}}</label></label>
+
 <br><br>
 <table class="table" border =1  >
   <thead>
@@ -22,7 +23,8 @@
     </tr>
   </thead>
   <tbody  >
-    <tr *ngFor="let emp of employees | filter : 'name' : searchString; let i = index;"  style = "padding : 5px;">
+    <tr *ngFor="let emp of employees | pilter : 'name' : searchString:2 ; let i = index; "   style = "padding : 5px;">
+
       <td ><a routerLink="/details" class="link" (click)="det(emp.id)">{{emp.id}}</a></td>
       <td id="name{{i+1}}">{{emp.name}} </td>
       <td id="loc{{i+1}}">{{emp.location}}</td>
@@ -31,8 +33,10 @@
       <td><a  routerLink="/editEmployee" class="link" (click)="clicked(emp.id)">Edit{{i+1}}</a></td>
       <td><a (click) = "delete(emp.id)" routerLink="/employees"  class="link">Delete{{i+1}}</a></td>
     </tr>
+  
   </tbody>
-</table>
+  
+</table> 
 <!-- | filter : 'name' : searchString -->
 <!-- <table>
   <tr>

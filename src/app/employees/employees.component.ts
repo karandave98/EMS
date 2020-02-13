@@ -39,20 +39,19 @@ export class EmployeesComponent  {
     this.dataServe.setEditData(ind);
   }
   delete(ind){
-    for(let emp of this.employees){
-      if((emp.id)== (ind)){
-        this.employees.splice(ind-1,1);
-        console.log("Inside if");
-        break;
-      }
+    this.dataServe.deleteEmployee(ind).subscribe(()=>{
+      this.employees = this.dataServe.getData();
+      this.empCount = this.employees.length;
     }
+    );
     //  for(let emp of this.employees){
     //   if(emp['id'] > ind){
     //     emp['id'] = emp['id']-1; 
     //   }
     // }
-    this.empCount = this.employees.length;
+   
   }
+
   det(i){
     let a =  {};
     for (let detailEmp of this.employees){
