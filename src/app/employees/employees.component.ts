@@ -35,7 +35,7 @@ export class EmployeesComponent  {
   }
   
   clicked(ind){
-    console.log(ind);
+    //console.log(ind);
     this.dataServe.setEditData(ind);
   }
   delete(ind){

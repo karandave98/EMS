@@ -36,7 +36,8 @@ export class DataService {
       return this.http.delete(`${this.heroesUrl }/${empId}`)
   }
   public updateEmp(employee: Employee){
-      return this.http.put(`${this.heroesUrl }/${employee.id}`, employee)
+    console.log(employee);
+      return this.http.put(this.heroesUrl, employee)
   }
 
 

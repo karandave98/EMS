@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,  NgForm, Validators } from '@angular/forms';
 
 
-import { DataService } from '../data.service';
+import { DataService,Employee } from '../data.service';
 import { Router }  from '@angular/router';
 
 
@@ -20,7 +20,7 @@ export class EditEmployeeComponent implements OnInit {
     let index  = this.dataServe.getEditData();
     this.employees = this.dataServe.getData();
     for ( let emp of this.employees){
-      if(emp['id'] == index){
+      if(emp.id === index){
         this.model=emp;
         break;
       }
@@ -28,7 +28,9 @@ export class EditEmployeeComponent implements OnInit {
     
   }
   updateEmp(){
+     
       this.dataServe.updateEmp(this.model);
+      
       this.router.navigate(["/employees"]);
   }
 
