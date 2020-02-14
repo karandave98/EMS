@@ -20,12 +20,6 @@ export class FilterPipe implements PipeTransform {
       return items;
     }
      if(trigger==1){
-       console.log('aurbhai');
-       if(value===''){
-         console.log('Hoehoe');
-         return [items.length];
-        
-       }
        return [items.filter(singleItem =>
       singleItem[field].toLowerCase().match("^".concat(value.toLowerCase()))
     ).length];

@@ -7,7 +7,14 @@
   <input type="text" id = "filter"  name="searchString" [(ngModel)]="searchString">
 </div>
 <br>
-<label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count"> <label> {{empCount | pilter:'name':searchString:1}}</label></label>
+<label style="margin: 15px 0px 0px 0px;"> Total Number of Employees : </label><label id ="count"> 
+  <ng-container *ngIf = "searchString;">
+    <label> {{empCount | pilter:'name':searchString:1}}</label>
+  </ng-container>
+  <ng-container *ngIf = "searchString===undefined || searchString ==='';">
+    <label> {{empCount | empCountPipe}}</label>
+  </ng-container>
+    </label>
 
 <br><br>
 <table class="table" border =1  >

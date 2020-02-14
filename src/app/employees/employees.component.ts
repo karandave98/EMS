@@ -21,7 +21,7 @@ export class EmployeesComponent  {
   constructor(private dataServe : DataService , private router : Router,private http: HttpClient) { }
   empCount : Number = 0;
   public employees:any[] = []; 
- 
+  searchString: string;
   ngOnInit() {
     this.dataServe.getEmp().subscribe((data : any[])=>{
         // console.log(data);

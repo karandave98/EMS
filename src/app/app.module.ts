@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { MyDirectiveDirective } from './my-directive.directive';
+import { EmpCountPipe } from './pipes/emp-count.pipe';
 const appRoutes: Routes = [
   
   { path: '\employees', component: EmployeesComponent },
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {delay:0}
     )   ],
-  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent, MyDirectiveDirective],
+  declarations: [ AppComponent, HelloComponent , EmployeesComponent , FilterPipe, AddEmployeeComponent, EditEmployeeComponent, DetailsComponent, MyDirectiveDirective, EmpCountPipe],
   bootstrap:    [ AppComponent ],
   providers: [InMemoryDataService]
 })
